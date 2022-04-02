@@ -14,8 +14,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity{
 
-    int LOCATION_REFRESH_TIME = 15000; // 15 seconds to update
-    int LOCATION_REFRESH_DISTANCE = 100; // 500 meters to update
+    int LOCATION_REFRESH_TIME = 50; // 50  milliseconds to update
+    int LOCATION_REFRESH_DISTANCE = 1; // 1 meter to update
     int MY_PERMISSIONS_REQUEST_LOCATION = 99;
 
     private double latM = 50.7385400928;
@@ -40,9 +40,12 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    protected void onStart() {
+        super.onStart();
         myTextView = (TextView)findViewById(R.id.mytextfield);
-         myImageView = (ImageView) findViewById(R.id.imageViewArrow);
-        Location location = getLocation();
+        myImageView = (ImageView) findViewById(R.id.imageViewArrow);
         tick();
     }
 
@@ -76,10 +79,6 @@ public class MainActivity extends AppCompatActivity{
                         mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, LOCATION_REFRESH_TIME, LOCATION_REFRESH_DISTANCE, mLocationListener);
                         if (mLocationManager != null) {
                             location = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-//                            if (location != null) {
-//                                double lat = location.getLatitude();
-//                                double lng = location.getLongitude();
-//                            }
                         }
                     }
                 }
