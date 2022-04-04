@@ -32,4 +32,14 @@
         app:layout_constraintTop_toBottomOf="@+id/mytextfield"
         app:srcCompat="@android:drawable/ic_menu_send" />
 
+    <TextView
+        android:id="@+id/textViewCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewArrow" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
